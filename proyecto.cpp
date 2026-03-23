@@ -9,6 +9,7 @@ para poder registrar todos los productos que posee
 #include<iostream>
 using namespace std;
 void Registrar(string nombres[], float precios[], int cantidades[], int &n);
+void MostrarInventario(string nombres[], float precios[], int cantidades[], int n);
 void menu();
  
 void menu(){
@@ -32,8 +33,10 @@ int main(){
         switch(opcion){
             case 1:
             Registrar(nombres, precios, cantidades, n);
+            cout << endl;
             case 2:
-
+            MostrarInventario(nombres, precios, cantidades, n);
+            cout << endl;
             case 3:
 
             case 4:
@@ -68,5 +71,14 @@ void Registrar(string nombres[], float precios[], int cantidades[], int &n){
             cin >> cantidades[n];
         }while(cantidades[n] <0);
         n++;
+    }
+}
+void MostrarInventario(string nombres[], float precios[], int cantidades[], int n){
+    if(n==0){
+        cout << "No dispone d productos" << endl;
+        cout << endl;
+    }
+    for(int i=0; i< n ;i++){
+        cout << nombres[i] << " Precio : " << precios[i] << " Cantidad: " << cantidades[i] << endl;
     }
 }
