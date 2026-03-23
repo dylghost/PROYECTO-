@@ -28,6 +28,7 @@ int main(){
     float precios[20];
     int cantidades[20];
     int n=0;
+    
     int opcion;
     do{
         menu();
