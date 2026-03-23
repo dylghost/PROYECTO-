@@ -11,6 +11,7 @@ using namespace std;
 void Registrar(string nombres[], float precios[], int cantidades[], int &n);
 void MostrarInventario(string nombres[], float precios[], int cantidades[], int n);
 void valorTotal(float precios[], int cantidades[], int n);
+void buscarProducto(string nombres[], float precios[], int cantidades[], int n);
 void menu();
  
 void menu(){
@@ -45,13 +46,14 @@ int main(){
             cout << endl;
             break;
             case 4:
-
+            buscarProducto(nombres,precios, cantidades, n);
+            cout << endl;
+            break;
             case 5:
             cout << "Gracias por usar";
             break;
             default:
             cout << "Opcion invalida vuelva a elegir";
-
         }
     }while(opcion !=5);
 }
@@ -97,3 +99,26 @@ void valorTotal(float precios[], int cantidades[], int n){
     cout << "Valor total del inventario es: " << suma << endl;
 
 }
+void buscarProducto(string nombres[], float precios[], int cantidades[], int n){
+    if(n==0){
+        cout <<"No hay productos";
+        return;
+    }
+
+    string nombreBuscado;
+    cout << "Ingrese el producto a bsucar : " ;
+    cin >> nombreBuscado;
+
+    bool encontrado=false;
+    for(int i=0; i <n ;i++){
+        if(nombres[i]==nombreBuscado){
+            cout<< "Producto encontrado" << endl;
+            cout << "Producto: " << nombres[i] << " Precio: " << precios[i] << "Cantidad: " << cantidades[i] << endl;
+            encontrado=true;
+        }
+    }
+    if(encontrado==false){
+        cout <<"Producto no eocntrado";
+    }
+}
+
